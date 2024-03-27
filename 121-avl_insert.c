@@ -98,7 +98,7 @@ int balance(const binary_tree_t *tree)
  *   *
  *    * @tree: A pointer root node measure the height.
  *     *
- *      * Return: If tree is NULL, your function must return 0, else return height.
+ *      * Return: If tree is NULL return 0, else return height.
  */
 size_t height(const binary_tree_t *tree)
 {
