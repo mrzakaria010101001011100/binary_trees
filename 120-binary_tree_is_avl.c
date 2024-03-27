@@ -20,10 +20,10 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 
 /**
  * is_avl_helper - check binary trees
- * @tree - pointer root node tree
- * @lo - value small node
- * @hi - value largest node
- * Return -  if tree is VAL tree 1, otherwise 0
+ * @tree: pointer root node tree
+ * @lo: value small node
+ * @hi: value largest node
+ * Return:  if tree is VAL tree 1, otherwise 0
  */
 int is_avl_helper(const binary_tree_t *tree, int lo, int hi)
 {
