@@ -5,7 +5,7 @@
  *   * @tree: pointer root node tree height
  *    *
  *     * Return: Height or 0 if tree is NULL
- *      */
+ */
 size_t tree_size(const binary_tree_t *tree)
 {
 	size_t height_l = 0;
@@ -31,7 +31,7 @@ size_t tree_size(const binary_tree_t *tree)
  *      *
  *       * Return: generated array
  *        *         NULL failure
- *         */
+ */
 int *heap_to_sorted_array(heap_t *heap, size_t *size)
 {
 	int i, *a = NULL;
