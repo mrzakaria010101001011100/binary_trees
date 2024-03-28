@@ -1,31 +1,53 @@
 #include "binary_trees.h"
 
 /**
- *  * heap_to_sorted_array - Converts a Binary Max Heap sorted array-integer.
- *   *
- *    * @heap: A pointer root node heap.
- *     * @size: An address to size of the array.
+ *  * tree_size - um of heights binary tree
+ *   * @tree: pointer root node tree height
+ *    *
+ *     * Return: Height or 0 if tree is NULL
+ *      */
+size_t tree_size(const binary_tree_t *tree)
+{
+	size_t height_l = 0;
+	size_t height_r = 0;
+
+	if (!tree)
+		return (0);
+
+	if (tree->left)
+		height_l = 1 + tree_size(tree->left);
+
+	if (tree->right)
+		height_r = 1 + tree_size(tree->right);
+
+	return (height_l + height_r);
+}
+
+/**
+ *  * heap_to_sorted_array - convert to  Binary Max Heap
+ *   * to a sorted array.
+ *    * @heap: a pointer root node heap
+ *     * @size: an address size array
  *      *
- *       * Return: Sorted descending type of order
- */
+ *       * Return: generated array
+ *        *         NULL failure
+ *         */
 int *heap_to_sorted_array(heap_t *heap, size_t *size)
 {
-	int *array;
-	int extract, i = 0;
-	size_t heap_size;
+	int i, *a = NULL;
 
-	if (!heap)
+	if (!heap || !size)
 		return (NULL);
-	heap_size = binary_tree_size(heap);
-	*size = heap_size;
-	array = malloc(heap_size * sizeof(int));
-	if (!array)
+
+	*size = tree_size(heap) + 1;
+
+	a = malloc(sizeof(int) * (*size));
+
+	if (!a)
 		return (NULL);
-	while (heap)
-	{
-		extract = heap_extract(&heap);
-		array[i] = extract;
-		i++;
-	}
-	return (array);
+
+	for (i = 0; heap; i++)
+		a[i] = heap_extract(&heap);
+
+	return (a);
 }
